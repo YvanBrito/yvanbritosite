@@ -62,11 +62,10 @@ export default {
   created() {
     api.get('/updateDate')
     .then(response => {
-      this.updateDate = response.data.split(' ')[0]
-      this.updateDate = this.updateDate.split('-')[2] + '-' + this.updateDate.split('-')[1] + '-' + this.updateDate.split('-')[0]
+      let date = new Date(response.data + ' UTC')
 
-      this.updateTime = response.data.split(' ')[1]
-      this.updateTime = this.updateTime.split(':')[0] + ':' + this.updateTime.split(':')[1]
+      this.updateDate = ("0" + date.getDate()).slice(-2) + '/' + ("0" + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear()
+      this.updateTime = ("0" + date.getHours()).slice(-2) + ':' + ("0" + date.getMinutes()).slice(-2)
     })
   },
   methods: {
