@@ -302,8 +302,8 @@
         },
         {
             "date": "3/12/20",
-            "confirmed": 128356,
-            "deaths": 4723,
+            "confirmed": 131007,
+            "deaths": 4912,
             "recovered": 68324
         },
         {
@@ -713,6 +713,12 @@
             "confirmed": 4897492,
             "deaths": 323285,
             "recovered": 1838995
+        },
+        {
+            "date": "5/20/20",
+            "confirmed": 4996472,
+            "deaths": 328115,
+            "recovered": 1897466
         }
     ],
     "brasilCases": [
@@ -1429,81 +1435,87 @@
             "confirmed": 271885,
             "deaths": 17983,
             "recovered": 106794
+        },
+        {
+            "date": "5/20/20",
+            "confirmed": 291579,
+            "deaths": 18859,
+            "recovered": 116683
         }
     ],
     "topTenConfirmed": [
         {
             "Region": "Americas",
             "Country": "USA",
-            "value": 1528568
+            "value": 1551853
         },
         {
             "Region": "Europe",
             "Country": "Russia",
-            "value": 299941
+            "value": 308705
         },
         {
             "Region": "Americas",
             "Country": "Brazil",
-            "value": 271885
+            "value": 291579
         },
         {
             "Region": "Europe",
             "Country": "United Kingdom",
-            "value": 250138
+            "value": 249619
         },
         {
             "Region": "Europe",
             "Country": "Spain",
-            "value": 232037
+            "value": 232555
         },
         {
             "Region": "Europe",
             "Country": "Italy",
-            "value": 226699
+            "value": 227364
         },
         {
             "Region": "Europe",
             "Country": "France",
-            "value": 180933
+            "value": 181700
         },
         {
             "Region": "Europe",
             "Country": "Germany",
-            "value": 177778
+            "value": 178473
         },
         {
             "Region": "Asia",
             "Country": "Turkey",
-            "value": 151615
+            "value": 152587
         },
         {
             "Region": "Asia",
             "Country": "Iran",
-            "value": 124603
+            "value": 126949
         }
     ],
     "worldregions": [
         {
             "Region": "Americas",
-            "value": 2185376
+            "value": 2243385
         },
         {
             "Region": "Europe",
-            "value": 1769309
+            "value": 1784312
         },
         {
             "Region": "Asia",
-            "value": 733376
+            "value": 750101
         },
         {
             "Region": "Africa",
-            "value": 198279
+            "value": 207494
         },
         {
             "Region": "Oceania",
-            "value": 10440
+            "value": 10468
         }
     ],
-    "updateTime": "2020-05-20 23:05:05.679493"
+    "updateTime": "2020-05-21 23:29:27.017858"
 }

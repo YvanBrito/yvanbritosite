@@ -74,7 +74,7 @@ export default {
         getData(){
             this.loading = true
             d3.select(`#${this.name}`).html("");
-            api.get(`/${this.dataPath}/`)
+            api.get(`${this.dataPath}`)
                 .then(response => {
                     this.loading = false
                     this.data = response.data
