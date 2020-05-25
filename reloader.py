@@ -1,6 +1,10 @@
-import json, time, urllib.request
+import json
+import time
+import urllib.request
 import pandas as pd
-from datetime import datetime
+
+jsonToReturn = {}
+counter = 0
 
 def globalCases():
     # Confirmed cases
@@ -109,15 +113,15 @@ def worldregions():
     for c in col:
         d = dataConfirmed.loc[dataConfirmed["Country/Region"] == c]
         d = d.drop(columns=['Country/Region']).sum(axis=0)
-        if (c == 'Diamond Princess'):
+        if c == 'Diamond Princess':
             continue
-        if (c == 'Czechia'):
+        if c == 'Czechia':
             c = 'Czech'
-        if (c == 'Korea, South'):
+        if c == 'Korea, South':
             c = 'Korea (Republic of)'
-        if (c == 'Taiwan*'):
+        if c == 'Taiwan*':
             c = 'Taiwan'
-        if (c == 'US'):
+        if c == 'US':
             c = 'United States of America'
         
         try:
@@ -142,17 +146,28 @@ def worldregions():
     resp = json.loads(data.to_json(orient='records'))
     jsonToReturn['worldregions'] = resp
 
-while True:
-    jsonToReturn = {}
+
+def reloadData():
 
     globalCases()
     brasilCases()
     toptenconfirmed()
     worldregions()
 
-    jsonToReturn['updateTime'] = str(datetime.now())
-    
+    response = json.loads(urllib.request.urlopen('https://api.github.com/repos/CSSEGISandData/COVID-19/commits').read())
+    jsonToReturn['updateTime'] = response[0]['commit']['author']['date']
+    jsonToReturn['updateTime'] = jsonToReturn['updateTime'].replace('T', ' ').replace('Z', '.0')
+
     with open('data.json', 'w', encoding='utf-8') as f:
         json.dump(jsonToReturn, f, ensure_ascii=False, indent=4)
 
-    time.sleep(86400)
+while True:
+    with open('data.json') as json_file:
+        dateBefore = json.loads(json_file.read())['updateTime']
+
+    response = json.loads(urllib.request.urlopen('https://api.github.com/repos/CSSEGISandData/COVID-19/commits').read())
+    dateNow = response[0]['commit']['author']['date']
+    dateNow = dateNow.replace('T', ' ').replace('Z', '.0')
+
+    if dateBefore != dateNow:
+        reloadData()
