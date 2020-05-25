@@ -2,6 +2,7 @@ import json
 import time
 import urllib.request
 import pandas as pd
+from datetime import datetime
 
 jsonToReturn = {}
 counter = 0
@@ -161,14 +162,19 @@ def reloadData():
     with open('data.json', 'w', encoding='utf-8') as f:
         json.dump(jsonToReturn, f, ensure_ascii=False, indent=4)
 
+
 while True:
-    with open('data.json') as json_file:
-        dateBefore = json.loads(json_file.read())['updateTime']
+    if str(datetime.now().strftime("%H:%M:%S")) == "03:01:00":
+        with open('data.json') as json_file:
+            dateBefore = json.loads(json_file.read())['updateTime']
 
-    response = json.loads(urllib.request.urlopen('https://api.github.com/repos/CSSEGISandData/COVID-19/commits').read())
-    dateNow = response[0]['commit']['author']['date']
-    dateNow = dateNow.replace('T', ' ').replace('Z', '.0')
+        try:
+            response = json.loads(urllib.request.urlopen('https://api.github.com/repos/CSSEGISandData/COVID-19/commits').read())
+            dateNow = response[0]['commit']['author']['date']
+            dateNow = dateNow.replace('T', ' ').replace('Z', '.0')
+        except:
+            dateNow = dateBefore
 
-    if dateBefore != dateNow:
-        reloadData()
-        time.sleep(86400)
+        if dateBefore != dateNow:
+            reloadData()
+        time.sleep(5)
