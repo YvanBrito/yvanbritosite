@@ -171,3 +171,4 @@ while True:
 
     if dateBefore != dateNow:
         reloadData()
+        time.sleep(86400)
