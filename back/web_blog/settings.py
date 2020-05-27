@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'blog.apps.WebblogConfig',
     'covid.apps.CovidConfig',
     'users.apps.UsersConfig',
+    'devradar.apps.DevradarConfig',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -131,6 +132,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, '../front/covid/dist'),
     os.path.join(BASE_DIR, '../front/resume'),
+    os.path.join(BASE_DIR, '../front/devradar/build'),
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

@@ -22,9 +22,11 @@ from django.conf.urls.static import static
 from users import views as user_views
 
 urlpatterns = [
+    path('', include('devradar.urls')),
     path('', include('covid.urls')),
     path('', TemplateView.as_view(template_name='resume/index.html')),
     path('coviddashboard', TemplateView.as_view(template_name='covid/dist/index.html')),
+    path('devradar', TemplateView.as_view(template_name='devradar/build/index.html')),
     path('admin/', admin.site.urls),
     path('blog/register/', user_views.register, name='register'),
     path('blog/profile/', user_views.profile, name='profile'),
