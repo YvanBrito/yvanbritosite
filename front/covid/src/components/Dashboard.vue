@@ -23,8 +23,8 @@
         :md="4"
         :sm="12">
         <Card :title="'Nº de casos por continente'">
-          <HorizontalBarChart
-              :name='"mortespordia3"'
+          <PieChart
+              :name='"mortespordia4"'
               :dataPath='area'
               :heightInitial='300'/>
         </Card>
@@ -32,22 +32,23 @@
     </v-row>
     <v-row>
       <v-col
-        :lg="6"
-        :md="6"
+        :lg="8"
+        :md="8"
         :sm="12">
         <Card
           :title="'Top 10 número de Casos'">
           <BarChart
-              :name='"mortespordia2"'
+              :name='"mortespordia3"'
               :dataPath='area'
               :heightInitial='300'/>
         </Card>
       </v-col>
       <v-col
-        :lg="6"
-        :md="6"
+        :lg="4"
+        :md="4"
         :sm="12">
         <Card :title="'Nº de casos por região'">
+          
         </Card>
       </v-col>
     </v-row>
@@ -58,9 +59,8 @@
 import Panel from './Panel'
 import Card from './Card'
 import LineChart from './Charts/LineChart'
-import HorizontalBarChart from './Charts/HorizontalBarChart'
 import BarChart from './Charts/BarChart'
-// import MapaMundi from './Charts/MapaMundi'
+import PieChart from './Charts/PieChart'
 
 
 export default {
@@ -68,9 +68,8 @@ export default {
     Panel,
     Card,
     LineChart,
-    HorizontalBarChart,
     BarChart,
-    // MapaMundi
+    PieChart
   },
   props: {
     area: {

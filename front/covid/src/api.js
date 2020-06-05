@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-var url = 'http://yvanbrito.com';
+var url = 'http://localhost:8000';
 
 const api = axios.create({
     baseURL: url,

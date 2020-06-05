@@ -163,18 +163,4 @@ def reloadData():
         json.dump(jsonToReturn, f, ensure_ascii=False, indent=4)
 
 
-while True:
-    if str(datetime.now().strftime("%H:%M:%S")) == "03:01:00":
-        with open('data.json') as json_file:
-            dateBefore = json.loads(json_file.read())['updateTime']
-
-        try:
-            response = json.loads(urllib.request.urlopen('https://api.github.com/repos/CSSEGISandData/COVID-19/commits').read())
-            dateNow = response[0]['commit']['author']['date']
-            dateNow = dateNow.replace('T', ' ').replace('Z', '.0')
-        except:
-            dateNow = dateBefore
-
-        if dateBefore != dateNow:
-            reloadData()
-        time.sleep(5)
+reloadData()

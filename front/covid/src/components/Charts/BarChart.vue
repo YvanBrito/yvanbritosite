@@ -94,6 +94,7 @@ export default {
             
             let g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+
             let x = d3.scaleBand()
                 .rangeRound([0, width])
                 .padding(0.1);
@@ -148,5 +149,9 @@ export default {
 
 .bar:hover {
     fill: brown;
+}
+
+.grid line {
+  stroke: #aaa;
 }
 </style>
