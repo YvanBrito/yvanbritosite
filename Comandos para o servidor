@@ -1,0 +1,5 @@
+pgrep -af python3  -> Lista os processos de Python
+sudo gunicorn --bind 0.0.0.0:80 web_blog.wsgi  ->  Roda o guniconr
+sudo nohup python3 reloader.py &   ->   Roda o script em segundo plano
+sudo pkill -f reloader.py  ->  Parar o script
+sudo pkill gunicorn

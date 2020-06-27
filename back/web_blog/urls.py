@@ -27,6 +27,7 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='resume/index.html')),
     path('coviddashboard', TemplateView.as_view(template_name='covid/dist/index.html')),
     path('devradar', TemplateView.as_view(template_name='devradar/build/index.html')),
+    path('beta', TemplateView.as_view(template_name='beta/index.html')),
     path('admin/', admin.site.urls),
     path('blog/register/', user_views.register, name='register'),
     path('blog/profile/', user_views.profile, name='profile'),

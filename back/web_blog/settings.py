@@ -132,6 +132,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, '../front/covid/dist'),
     os.path.join(BASE_DIR, '../front/resume'),
+    os.path.join(BASE_DIR, '../front/beta'),
     os.path.join(BASE_DIR, '../front/devradar/build'),
 ]
 
